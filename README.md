@@ -14,7 +14,8 @@
 1. 백준 사이트에서 개인 그룹을 하나 만들어 준다. -> 해당 그룹을 url로 설정해 프로그램 실행
 2. git repo 만들고 token 발급받는다.
 3. 코드의 GitPush.py와 Login.py에 자신의 Token, ID, PASSWD를 넣는다.
-- GitPush.py  
+- GitPush.py
+    - TOKEN  
     ```access_token = "[GIT_ACCESSTOKEN]"```
 - Login.py
     - ID  
