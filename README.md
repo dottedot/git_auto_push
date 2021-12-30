@@ -14,12 +14,12 @@
 1. 백준 사이트에서 개인 그룹을 하나 만들어 준다. -> 해당 그룹을 url로 설정해 프로그램 실행
 2. git repo 만들고 token 발급받는다.
 3. 코드의 GitPush.py와 Login.py에 자신의 Token, ID, PASSWD를 넣는다.
-- GitPush.py
+- GitPush.py  
     ```access_token = "[GIT_ACCESSTOKEN]"```
 - Login.py
-    - ID
+    - ID  
     ```action.send_keys('[BAEKJOON_ID]').perform()```
-    - PASSWD
+    - PASSWD  
     ```driver.find_elements_by_css_selector('.form-control')[1].send_keys('[BAEKJOON_PASSWD]')```
 4. 백준에서 문제를 푼다.
 5. 문제를 다 풀었으면 main을 실행 -> 가끔가다가 캡챠에 걸릴때가 있는데 직접 풀어줘야한다.
