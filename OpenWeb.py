@@ -1,12 +1,15 @@
-from selenium import webdriver
+#-*- coding: utf-8 -*-
 
-def driver():
-    chromeoption = webdriver.ChromeOptions()
+from selenium import webdriver
+import priv_user
+
 # chromeoption.add_argument('--headless')
 # chromeoption.add_argument('--no-sandbox')
 # chromeoption.add_argument('--disable-dev-shm-usage')
 
+def driver():
+    chromeoption = webdriver.ChromeOptions()
     driver = webdriver.Chrome('chromedriver', options = chromeoption)
-    url = 'https://www.acmicpc.net/login?next=%2Fstatus%3Fgroup_id%3D13131'
-    driver.get(url)
+    driver.get(priv_user.BOJ_URL)
+
     return driver
