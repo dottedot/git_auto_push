@@ -1,33 +1,24 @@
+#-*- coding: utf-8 -*-
+
+# TODO : if i solve by python -> save python
+#        if i solve by cpp -> save cpp
+#        select the language that i solve 
+
 import time
+import OpenWeb, Login, CheckToGoNext
 from GetFileText import file_text
-from OpenWeb import driver
-from Login import login
-from GetProblem import problem
-from CheckToGoNext import Check
+from GetProblemInBOJ import problem
 from GitPush import push
 
-# generate driver
-driver = driver()
+driver = OpenWeb.driver()                                   # Generate driver
+Login.login(driver)                                         # Login to BOJ
+CheckToGoNext.check(driver)                                 # If CAPTCHA -> you will solve it!
+problem_lst = problem(driver)                               # Get problem number, return list
 
-# login
-login(driver)
-
-# if CAPTCHA -> you will solve it!
-Check(driver)
-
-print('\n######### START #########\n')
-
-while True:
-    # get problem number list
-    problem_lst = problem(driver)
-
-    for num in problem_lst:
-        # get problem code 
-        # text '0' : not solve this problem 
-        file, text = file_text(num)
-
-        if text != '0':
-            push(file, text)
-
-    print('\n waiting.. \n')
-    time.sleep(5)
+for problem_num in problem_lst:
+    file, text = file_text(problem_num, 'boj_python')       # Get problem 'NAME', 'CODES'
+                                                            # boj_python // boj_cpp // leetcode_cpp
+    if text != '0':                                         # If text '0' not solve this problem
+        push(file, text, 'boj_python')                      # or my filename is different
+    else:                                                   # so check this.
+        print('Check the problem [', problem_num, ']')
